@@ -1,9 +1,12 @@
-const startDate = new Date(2025, 0, 22); // Jan 22 2025
+const startDate = new Date(2025, 0, 22);
 
 const daysCountElem = document.getElementById("daysCount");
 const liveTimerElem = document.getElementById("liveTimer");
+const unlockButton = document.getElementById("unlockButton");
+const passwordInput = document.getElementById("passwordInput");
 
-// DAYS COUNTER
+const correctPassword = "RonyaLovesDanaAndDanaLovesRonya";
+
 function updateDays() {
   const now = new Date();
   const diffTime = now - startDate;
@@ -11,7 +14,6 @@ function updateDays() {
   daysCountElem.textContent = diffDays;
 }
 
-// LIVE TIMER
 function updateLiveTimer() {
   const now = new Date();
   let diff = now - startDate;
@@ -33,12 +35,20 @@ function updateLiveTimer() {
   liveTimerElem.textContent = `${months} months ${days} days ${hours}h ${minutes}m ${seconds}s`;
 }
 
-// RUN ONCE
 updateDays();
 updateLiveTimer();
 
-// UPDATE EVERY SECOND
 setInterval(() => {
   updateDays();
   updateLiveTimer();
 }, 1000);
+
+unlockButton.addEventListener("click", () => {
+  const input = passwordInput.value.trim();
+
+  if (input === correctPassword) {
+    window.location.href = "recap.html";
+  } else {
+    alert("Wrong password 💔");
+  }
+});
