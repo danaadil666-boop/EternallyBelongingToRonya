@@ -1,6 +1,3 @@
-// TEST: if you don't see this alert, your JS is NOT loading
-alert("countdown.js loaded ✅");
-
 const startDate = new Date(2025, 0, 22);
 
 const daysCountElem = document.getElementById("daysCount");
@@ -48,10 +45,8 @@ setInterval(() => {
   updateLiveTimer();
 }, 1000);
 
-// BUTTON CLICK
+// PASSWORD → GO TO RECAP PAGE
 unlockButton.addEventListener("click", () => {
-  alert("Unlock button clicked ✅");
-
   const input = passwordInput.value.trim();
 
   if (input === correctPassword) {
