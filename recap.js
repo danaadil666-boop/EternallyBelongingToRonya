@@ -15,8 +15,7 @@ const slideImages = [
 const leftSlide = document.getElementById("leftSlide");
 const rightSlide = document.getElementById("rightSlide");
 
-let leftIndex = 0;
-let rightIndex = 1;
+let index = 0;
 
 function updateSlides() {
   if (!leftSlide || !rightSlide) return;
@@ -25,23 +24,17 @@ function updateSlides() {
   rightSlide.style.opacity = "0";
 
   setTimeout(() => {
-    leftSlide.src = slideImages[leftIndex];
-    rightSlide.src = slideImages[rightIndex];
+    // ✅ BOTH show the same image
+    leftSlide.src = slideImages[index];
+    rightSlide.src = slideImages[index];
 
     leftSlide.style.opacity = "1";
     rightSlide.style.opacity = "1";
   }, 300);
 }
 
-function nextSlides() {
-  leftIndex = (leftIndex + 1) % slideImages.length;
-  rightIndex = (rightIndex + 1) % slideImages.length;
-
-  // Prevent showing the same image on both sides
-  if (leftIndex === rightIndex) {
-    rightIndex = (rightIndex + 1) % slideImages.length;
-  }
-
+function nextSlide() {
+  index = (index + 1) % slideImages.length;
   updateSlides();
 }
 
@@ -49,4 +42,4 @@ function nextSlides() {
 updateSlides();
 
 // Change every 3 seconds
-setInterval(nextSlides, 3000);
+setInterval(nextSlide, 3000);

@@ -12,29 +12,33 @@ body {
   position: relative;
 }
 
-/* SIDE SLIDESHOWS */
+/* SIDE SLIDESHOWS (THINNER + SOFTER + ROUNDED) */
 .side-slideshow {
   position: fixed;
-  top: 0;
-  width: 220px;
-  height: 100vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;        /* thinner */
+  height: 76vh;        /* slightly smaller */
   overflow: hidden;
   z-index: 0;
-  opacity: 0.95;
+  opacity: 0.45;       /* softer */
+  border-radius: 28px;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.16);
 }
 
 .side-slideshow.left {
-  left: 0;
+  left: 12px;
 }
 
 .side-slideshow.right {
-  right: 0;
+  right: 12px;
 }
 
 .side-slideshow img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   filter: brightness(0.95) contrast(1.05);
   transition: opacity 0.35s ease;
 }
