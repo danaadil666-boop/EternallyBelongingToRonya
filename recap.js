@@ -1,30 +1,54 @@
-const images = [
+// ====== SLIDESHOW IMAGES (10 TOTAL) ======
+const slideImages = [
   "slides/ronya1.jpg",
   "slides/ronya2.jpg",
   "slides/ronya3.jpg",
   "slides/ronya4.jpg",
   "slides/ronya5.jpg",
-  "slides/ronya6.jpg"
+  "slides/ronya6.jpg",
+  "slides/ronya7.jpg",
+  "slides/ronya8.jpg",
+  "slides/ronya9.jpg",
+  "slides/ronya10.jpg"
 ];
 
-let index = 0;
-
+// Grab the images from recap.html
 const leftSlide = document.getElementById("leftSlide");
 const rightSlide = document.getElementById("rightSlide");
 
-function changeSlides() {
-  leftSlide.style.opacity = 0;
-  rightSlide.style.opacity = 0;
+let leftIndex = 0;
+let rightIndex = 1;
+
+// Fade + swap images
+function updateSlides() {
+  if (!leftSlide || !rightSlide) return;
+
+  leftSlide.style.opacity = "0";
+  rightSlide.style.opacity = "0";
 
   setTimeout(() => {
-    index = (index + 1) % images.length;
+    leftSlide.src = slideImages[leftIndex];
+    rightSlide.src = slideImages[rightIndex];
 
-    leftSlide.src = images[index];
-    rightSlide.src = images[index];
-
-    leftSlide.style.opacity = 1;
-    rightSlide.style.opacity = 1;
-  }, 1000); // fade time
+    leftSlide.style.opacity = "1";
+    rightSlide.style.opacity = "1";
+  }, 300);
 }
 
-setInterval(changeSlides, 3000);
+function nextSlides() {
+  leftIndex = (leftIndex + 1) % slideImages.length;
+  rightIndex = (rightIndex + 1) % slideImages.length;
+
+  // Prevent same image on both sides
+  if (leftIndex === rightIndex) {
+    rightIndex = (rightIndex + 1) % slideImages.length;
+  }
+
+  updateSlides();
+}
+
+// First load
+updateSlides();
+
+// Change every 3 seconds
+setInterval(nextSlides, 3000);
