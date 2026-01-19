@@ -12,14 +12,12 @@ const slideImages = [
   "slides/ronya10.jpg"
 ];
 
-// Grab the images from recap.html
 const leftSlide = document.getElementById("leftSlide");
 const rightSlide = document.getElementById("rightSlide");
 
 let leftIndex = 0;
 let rightIndex = 1;
 
-// Fade + swap images
 function updateSlides() {
   if (!leftSlide || !rightSlide) return;
 
@@ -39,7 +37,7 @@ function nextSlides() {
   leftIndex = (leftIndex + 1) % slideImages.length;
   rightIndex = (rightIndex + 1) % slideImages.length;
 
-  // Prevent same image on both sides
+  // Prevent showing the same image on both sides
   if (leftIndex === rightIndex) {
     rightIndex = (rightIndex + 1) % slideImages.length;
   }
