@@ -12,26 +12,27 @@ body {
   position: relative;
 }
 
-/* SIDE SLIDESHOWS (THINNER + SOFTER + ROUNDED) */
+/* SIDE SLIDESHOWS (WIDER + FULL VISIBILITY + CENTERED BETWEEN CONTENT AND EDGES) */
 .side-slideshow {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  width: 140px;        /* thinner */
-  height: 76vh;        /* slightly smaller */
+  width: 230px;        /* a little wider */
+  height: 82vh;
   overflow: hidden;
   z-index: 0;
-  opacity: 0.45;       /* softer */
-  border-radius: 28px;
-  box-shadow: 0 0 22px rgba(0, 0, 0, 0.16);
+  opacity: 1;          /* no transparency */
+  border-radius: 32px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.18);
 }
 
+/* Push them inward so they sit between the content and the corners */
 .side-slideshow.left {
-  left: 12px;
+  left: 140px;
 }
 
 .side-slideshow.right {
-  right: 12px;
+  right: 140px;
 }
 
 .side-slideshow img {
@@ -39,7 +40,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.95) contrast(1.05);
+  filter: brightness(1) contrast(1);
   transition: opacity 0.35s ease;
 }
 
@@ -144,7 +145,32 @@ body {
 .card5 { border: 2px solid rgba(255, 200, 90, 0.45); }
 .card6 { border: 2px solid rgba(90, 220, 160, 0.45); }
 
-/* MOBILE */
+/* RESPONSIVE FIXES */
+@media (max-width: 1400px) {
+  .side-slideshow.left {
+    left: 90px;
+  }
+
+  .side-slideshow.right {
+    right: 90px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .side-slideshow {
+    width: 200px;
+    height: 78vh;
+  }
+
+  .side-slideshow.left {
+    left: 40px;
+  }
+
+  .side-slideshow.right {
+    right: 40px;
+  }
+}
+
 @media (max-width: 900px) {
   .side-slideshow {
     display: none;
