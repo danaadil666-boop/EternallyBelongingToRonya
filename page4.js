@@ -26,7 +26,7 @@ const videoSlides = [
   {
     src: "videos/ronya4.mp4",
     caption:
-      "NEVER AND EVER will i ever be ale to willingly take my eyes from you i just cant i literally cannot with the way you look my eyes are glued to you and solely you and how dazzling you are",
+      "NEVER AND EVER will i ever be able to willingly take my eyes from you i just cant i literally cannot with the way you look my eyes are glued to you and solely you and how dazzling you are",
   },
   {
     src: "videos/ronya5.mp4",
