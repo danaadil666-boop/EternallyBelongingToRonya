@@ -24,7 +24,7 @@ function updateSlides() {
   rightSlide.style.opacity = "0";
 
   setTimeout(() => {
-    // ✅ BOTH show the same image
+    // ✅ BOTH sides show the SAME image
     leftSlide.src = slideImages[index];
     rightSlide.src = slideImages[index];
 
