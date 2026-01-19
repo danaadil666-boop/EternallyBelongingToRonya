@@ -7,80 +7,181 @@
 body {
   min-height: 100vh;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #ffcfb8, #ff9eb5);
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
+  background: radial-gradient(circle at top, #ffe7f0, #ffd6e7, #d7f2ff);
+  overflow-x: hidden;
 }
 
+/* PAGE WRAPPER */
 .page {
   width: 100%;
   max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px 60px;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1s ease;
 }
 
+/* HEADER */
 .header {
   text-align: center;
-  margin-bottom: 35px;
-  padding: 25px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+  padding: 32px 25px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.14);
+  margin-bottom: 30px;
 }
 
 .header h1 {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #3a1f25;
-  font-weight: 600;
+  font-size: 2.2rem;
+  color: #8b2b4a;
+  margin-bottom: 10px;
 }
 
+.header p {
+  font-size: 1.05rem;
+  color: #2d1b22;
+  font-weight: 650;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  gap: 18px;
 }
 
+/* CARD */
 .card {
   text-decoration: none;
-  padding: 30px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+  padding: 22px 22px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.12);
   transition: 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+  min-height: 170px;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 0 35px rgba(0,0,0,0.18);
+}
+
+.card .emoji {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .card h2 {
-  color: #b83250;
-  font-size: 1.2rem;
-  line-height: 1.4;
+  font-size: 1.25rem;
+  color: #8b2b4a;
+  margin-bottom: 8px;
+  line-height: 1.25;
+  font-weight: 800;
 }
 
-.small {
-  margin-top: 8px;
-  color: #3a1f25;
-  font-size: 0.9rem;
+.card p {
+  font-size: 1rem;
+  color: #2d1b22;
+  font-weight: 650;
+  opacity: 0.9;
+  line-height: 1.5;
 }
 
+/* WIDE CARDS */
 .wide {
   grid-column: span 2;
 }
 
-@media (max-width: 700px) {
+/* DIFFERENT COLORS FOR EACH BOX */
+.card1 {
+  background: linear-gradient(135deg, rgba(255, 231, 240, 0.75), rgba(255, 255, 255, 0.55));
+}
+
+.card2 {
+  background: linear-gradient(135deg, rgba(255, 241, 214, 0.75), rgba(255, 214, 231, 0.55));
+}
+
+.card3 {
+  background: linear-gradient(135deg, rgba(215, 242, 255, 0.75), rgba(255, 255, 255, 0.55));
+}
+
+.card4 {
+  background: linear-gradient(135deg, rgba(220, 255, 230, 0.75), rgba(255, 255, 255, 0.55));
+}
+
+.card5 {
+  background: linear-gradient(135deg, rgba(255, 214, 231, 0.75), rgba(215, 242, 255, 0.55));
+}
+
+/* NEW PAGE 6 COLOR */
+.card6 {
+  background: linear-gradient(135deg, rgba(255, 241, 214, 0.85), rgba(215, 242, 255, 0.85));
+}
+
+/* SIDE SLIDESHOWS */
+.side-slideshow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: 650px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.side-slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.side-slideshow.left {
+  left: 25px;
+}
+
+.side-slideshow.right {
+  right: 25px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .side-slideshow {
+    display: none;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
+
   .wide {
     grid-column: span 1;
+  }
+
+  .header h1 {
+    font-size: 1.7rem;
   }
 }

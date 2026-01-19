@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffcfb8, #ff9eb5);
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  color: #3a1f25;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* PAGE WRAPPER */
+.page {
+  width: 100%;
+  max-width: 900px;
+  animation: fadeIn 1s ease;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  color: #b83250;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 18px rgba(255,255,255,0.25);
+}
+
+/* TEXT BUBBLE */
+.bubble {
+  padding: 35px 30px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 35px rgba(0,0,0,0.18);
+  line-height: 1.9;
+}
+
+/* PARAGRAPHS */
+.bubble p {
+  font-size: 1.1rem;
+  color: #3a1f25;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* STICKER IMAGE CONTAINER */
+.sticker-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* STICKER IMAGE STYLE */
+.sticker-img img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+  transform: rotate(-2deg);
+}
+
+/* FADE IN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .bubble {
+    padding: 25px 20px;
+    border-radius: 28px;
+  }
+
+  .bubble p {
+    font-size: 1rem;
+  }
+
+  .sticker-img img {
+    width: 260px;
+  }
+}

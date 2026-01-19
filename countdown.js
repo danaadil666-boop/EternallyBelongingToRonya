@@ -5,6 +5,8 @@ const liveTimerElem = document.getElementById("liveTimer");
 const unlockButton = document.getElementById("unlockButton");
 const passwordInput = document.getElementById("passwordInput");
 
+const loadingScreen = document.getElementById("loadingScreen");
+
 const correctPassword = "RonyaLovesDanaAndDanaLovesRonya";
 
 // DAYS COUNTER
@@ -45,12 +47,16 @@ setInterval(() => {
   updateLiveTimer();
 }, 1000);
 
-// PASSWORD → GO TO RECAP PAGE
+// PASSWORD → LOADING SCREEN → RECAP PAGE
 unlockButton.addEventListener("click", () => {
   const input = passwordInput.value.trim();
 
   if (input === correctPassword) {
-    window.location.href = "recap.html";
+    loadingScreen.style.display = "flex";
+
+    setTimeout(() => {
+      window.location.href = "recap.html";
+    }, 2000); // 2 seconds loading screen
   } else {
     alert("Wrong password 💔");
   }
